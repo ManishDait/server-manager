@@ -52,4 +52,4 @@ Before you get started, make sure you have the following tools and technologies 
    ```bash
    ng serve -o
    ```
-   The Angular app will be available at `http://localhost:4200``.
+   The Angular app will be available at `http://localhost:4200`.
