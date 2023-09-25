@@ -1,0 +1,26 @@
+<div class="navbar">
+    <div class="heading">
+        <h1>Manage Server</h1>
+    </div>
+
+    <div class="button-container">
+        <div class="drop-down">
+            <div class="drop-down-bttn" (click)="toggleDropDown()">
+                <p>{{ currentStatus }}</p>
+                <i class="material-icons">{{ toggleDropdown? 'expand_less' : 'expand_more' }}</i>
+            </div>
+            <div class="drop-down-list" *ngIf="toggleDropdown">
+                <ul>
+                    <li *ngFor="let status of statusList" (click)="changeStatus(status)">{{ status }}</li>
+                </ul>
+            </div>
+        </div>
+        <button class="green-bttn" (click)="toggleAdd()">
+            <i class="material-icons">add_circle</i>
+            <p>New Server</p>
+        </button>
+        <button class="blue-bttn" (click)="createSpreadSheet()">
+            <p>Print Report</p>
+        </button>
+    </div>
+</div>

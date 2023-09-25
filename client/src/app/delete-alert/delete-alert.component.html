@@ -1,0 +1,14 @@
+<div class="card">
+    <div class="header">
+        <h1>Delete</h1>
+    </div>
+    
+    <div class="body">
+        <p>Delete Server " <span>{{ !server? '' : server.name }}</span> ".</p>
+    </div>
+
+    <div class="footer">
+        <button class="blue-bttn" (click)="toggleCancle()">Cancel</button>
+        <button class="red-bttn" (click)="deleteServer()">OK</button>
+    </div>
+</div>

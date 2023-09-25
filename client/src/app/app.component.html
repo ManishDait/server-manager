@@ -1,0 +1,50 @@
+<div class="window">
+    <div class="fixed-bg" [id]="'add'">
+        <app-add-server></app-add-server>
+    </div>
+    <div class="fixed-bg" [id]="'delete'">
+        <app-delete-alert [server]="selectedDeletServer"></app-delete-alert>
+    </div>
+    <div class="main">
+        <app-navbar></app-navbar>
+        <div *ngIf="dataLoaded">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>IP Address</th>
+                        <th>Name</th>
+                        <th>Memory</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Ping</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+    
+                <tbody>
+                    <tr *ngFor="let server of result; index as i">
+                        <td><img [src] = 'server.imgURL'></td>
+                        <td>{{ server.ipAddress }}</td>
+                        <td>{{ server.name }}</td>
+                        <td>{{ server.memory }}</td>
+                        <td>{{ server.type }}</td>
+                        <td><span class="badge"[ngStyle]="{'background-color': server.status=='SERVER_DOWN'? 'red' : 'rgb(86, 189, 18)'}">{{ server.status }}</span></td>
+                        <td><i class="material-icons ping" (click)="pingServer(server, ping.id)" [id]="'server'+i" #ping>router</i></td>
+                        <td><i class="material-icons delete" (click)="deleteServer(server)">delete</i></td>
+                    </tr>
+                </tbody>
+            </table>
+    
+            <div class="banner" *ngIf="result.length == 0">
+                <h1>No Server Present...</h1>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="alert" [id]="'alert'">
+        <p>{{ alertMsg }}</p>
+        <i class="material-icons" (click)="closeAlert()">close</i>
+    </div>
+</div>
